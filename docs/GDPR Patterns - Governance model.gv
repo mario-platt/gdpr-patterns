@@ -1,0 +1,33 @@
+digraph G {
+
+label = "Governance"
+
+Governance [label="Governance"]
+SecExcpt [label="Security exception"]
+PrvExcpt [label="Privacy exception"]
+Reporting [label="Reporting"]
+RiskMgt [label="Risk Management"]
+Assurance [label="Assurance"]
+OnelineA [label="1st line Assurance"]
+TwolineA [label="2nd line Assurance"]
+ThreelineA [label="3rd line Assurance"]
+MgtCtrl [label="Management controls"]
+IntAssur [label="Infosec Assurance"]
+ExtAssur  [label="External audit"]
+
+Governance -> SecExcpt [label="supported by"]
+Governance -> PrvExcpt [label="supported by"]
+Governance -> Reporting [label="supported by"]
+Governance -> RiskMgt [label="supported by"]
+Governance -> Assurance [label="supported by"]
+
+Assurance -> OnelineA [label="comprised of"]
+Assurance -> TwolineA [label="comprised of"]
+Assurance -> ThreelineA [label="comprised of"]
+
+
+OnelineA -> MgtCtrl  [label="is"]
+TwolineA -> IntAssur [label="is"]
+ThreelineA -> ExtAssur [label="is"]
+
+}
