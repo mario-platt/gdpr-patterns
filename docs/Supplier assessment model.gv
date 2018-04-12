@@ -1,0 +1,54 @@
+digraph G {
+ 
+label = "Supplier"
+
+Supplier [label="Supplier"]
+Service [label="Service"]
+Contract [label="Contract"]
+digraph G {
+ 
+label = "Supplier"
+
+Supplier [label="Supplier"]
+Service [label="Service"]
+Contract [label="Contract"]
+OrgTechMeas [label="Organizational and technical measures"]
+Country [label="Country"]
+#Awareness [label="Training and awareness"]
+#AuditRight [label="Right to audit"]
+Liability [label="Liability cap"]
+#EmplCheck [label="Employment checks"]
+#SubSupp [label="Sub-supplier security"]
+VulnPatch [label="Vulnerability and Patch management"]
+MalwProt [label="Malware protection"]
+#AccCtrl [label="Access Control"]
+SecTest [label="Security testing"]
+#ConfClau [label="Confidentiality clause"]
+#IncResp [label="Incident response and notification"]
+#SecSDLC [label="Secure SDLC"]
+SecCerts [label="Security certifications"]
+
+Supplier -> Contract [label="bound by"]
+Supplier -> Service [label="provides"]
+Supplier -> OrgTechMeas [label="operates"]
+Supplier -> SecCerts [label="has valid"]
+Service -> Country [label="is hosted"]
+Service -> Country [label="is operated"]
+#Contract -> Awareness [label="explicitly includes"]
+#Contract -> AuditRight [label="explicitly includes"]
+Contract -> Liability [label="explicitly includes"]
+Contract -> SecTest [label="explicitly includes"]
+#Contract -> EmplCheck [label="explicitly includes"]
+#Contract -> SubSupp [label="explicitly includes"]
+Contract -> VulnPatch [label="explicitly includes"]
+Contract -> MalwProt [label="explicitly includes"]
+#Contract -> AccCtrl [label="explicitly includes"]
+#Contract -> SecTest [label="explicitly includes"]
+#Contract -> ConfClau [label="explicitly covers"]
+#Contract ->IncResp [label="explicitly includes"]
+#Contract -> SecSDLC [label="explicitly includes"]
+OrgTechMeas -> VulnPatch [label="are"]
+OrgTechMeas -> MalwProt [label="are"]
+OrgTechMeas -> SecTest [label="are"]
+
+}
