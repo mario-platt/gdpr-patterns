@@ -1,0 +1,41 @@
+digraph G {
+label = "Risk"
+
+Risk [label="Risk"]
+Impact [label="Impact"]
+Likelihood [label="Likelihood"]
+Volume [label="Volume"]
+Asset [label="Asset"]
+ThreatSrc [label="Threat Source"]
+AppliedCtrl [label="Applied Controls"]
+ApplicCtrl [label="Applicable controls"]
+CtrlGaps [label="Control gaps"]
+TreatOpt [label="Treatment Options"]
+Accept [label="Accept"]
+Transfer [label="Transfer"]
+Avoid [label="Avoid"]
+Reduce [label="Reduce"]
+RiskAppt [label="Risk appetite"]
+
+Risk -> Impact [label="has"]
+Risk -> Likelihood [label="has"]
+Impact -> Volume [label="is affected"]
+Risk -> ThreatSrc [label="has"]
+Risk -> Asset [label="affects an"]
+Asset -> AppliedCtrl [label="has"]
+Asset -> ApplicCtrl [label="has"]
+AppliedCtrl -> CtrlGaps [label="determines"]
+ApplicCtrl -> CtrlGaps [label="determines"]
+
+CtrlGaps -> Risk [label="affect"]
+
+Risk -> TreatOpt [label="has"]
+TreatOpt -> Accept [label="can be"]
+TreatOpt -> Transfer [label="can be"]
+TreatOpt -> Avoid [label="can be"]
+TreatOpt -> Reduce [label="can be"]
+
+RiskAppt -> ApplicCtrl [label="affects"]
+RiskAppt -> TreatOpt [label="affects"]
+
+}
