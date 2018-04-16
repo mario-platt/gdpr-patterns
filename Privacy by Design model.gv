@@ -1,0 +1,51 @@
+digraph G {
+label = "Privacy by Design"
+
+PbD  [label="Privacy by Design"]
+PbDReqs [label="Requirements"]
+PrivTest [label="Privacy testing"]
+SecTest [label="Security testing"]
+ResTest [label="Resilience testing"]
+PrivAware [label="Privacy-aware"]
+Secure [label="Secure"]
+Resilient [label="Resilient"]
+
+PIIflowVal [label="Validate PII containing flows"]
+StorRet [label="Validate storage and retention"]
+Consent [label="Search for consent and privacy policy"]
+UserVal [label="Validate only own-information can be read"]
+
+CodAnal [label="code analysis"]
+VulnMgt [label="vulnerability management"]
+ASV [label="Approved Scanning Vendor"]
+Pentest [label="Penetration test"]
+ConfigMgt [label="Configuration Management"]
+
+ChaosEng [label="Chaos Engineering"]
+TestUnst [label="testing behaviour in unstable conditions"]
+PredImp [label="Predict impact of adverse conditions and incidents"]
+
+PbD -> PbDReqs [label="defined by"]
+PbDReqs -> PrivAware [label="must be"]
+PbDReqs -> Secure [label="must be"]
+PbDReqs -> Resilient [label="must be"]
+PrivAware -> PrivTest [label="tested through"]
+Secure -> SecTest [label="tested through"]
+Resilient -> ResTest [label="tested through"]
+
+PrivTest -> PIIflowVal [label="tested as"]
+PrivTest -> StorRet [label="tested as"]
+PrivTest -> Consent [label="tested as"]
+PrivTest -> UserVal [label="tested as"]
+
+SecTest -> CodAnal [label="tested as"]
+SecTest -> VulnMgt [label="tested as"]
+SecTest -> ConfigMgt [label="tested as"]
+SecTest -> ASV [label="tested as"]
+SecTest -> Pentest [label="tested as"]
+
+ResTest -> ChaosEng [label="is"]
+ResTest -> TestUnst [label="tested as"]
+ResTest -> PredImp [label="tested as"]
+
+}
